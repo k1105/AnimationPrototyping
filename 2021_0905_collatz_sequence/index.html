@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- P5js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+  </head>
+
+  <body>
+    <div class="canvas_container"></div>
+
+    <style>
+      .p5canvas {
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+
+      body {
+        overflow: hidden;
+      }
+    </style>
+
+    <script>
+      let collatz_array;
+      let i = 1;
+      const culcCollatzSequense = (input) => {
+        const out = [];
+        let num = input;
+        while (num != 1) {
+          out.push(num);
+          if (num % 2 == 0) {
+            num = num / 2;
+          } else {
+            num = num * 3 + 1;
+          }
+        }
+        return out;
+      };
+
+      function setup() {
+        canvas = createCanvas(window.innerWidth, window.innerHeight);
+        canvas.position(0, 0);
+        canvas.class("p5canvas");
+        background(0);
+      }
+
+      function draw() {
+        collatz_array = culcCollatzSequense(i);
+        stroke(255);
+        noFill();
+        //background(0);
+        let r;
+        let c;
+        for (let i = 0; i < collatz_array.length - 1; i++) {
+          r = Math.abs(collatz_array[i + 1] - collatz_array[i]) / 2;
+          if (collatz_array[i] > collatz_array[i + 1]) {
+            c = collatz_array[i + 1] + r;
+          } else {
+            c = collatz_array[i] + r;
+          }
+          ellipse(c + 100, 400, r * 2);
+        }
+        i++;
+      }
+
+      window.onresize = function () {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        canvas.size(w, h);
+        width = w;
+        height = h;
+      };
+    </script>
+  </body>
+</html>
