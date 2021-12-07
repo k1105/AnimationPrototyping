@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- P5js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+  </head>
+
+  <body>
+    <div class="canvas_container"></div>
+
+    <style>
+      .p5canvas {
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+
+      body {
+        overflow: hidden;
+      }
+    </style>
+
+    <script>
+      function setup() {
+        canvas = createCanvas(window.innerWidth, window.innerHeight);
+        canvas.position(0, 0);
+        canvas.class("p5canvas");
+      }
+
+      function draw() {
+        background(255);
+      }
+
+      window.onresize = function () {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        canvas.size(w, h);
+        width = w;
+        height = h;
+      };
+    </script>
+  </body>
+</html>
