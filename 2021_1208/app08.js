@@ -29,7 +29,7 @@ draw = (_) => {
 
     stroke(255);
     strokeWeight(80);
-    line(n[0], n[1], c[0], c[1]);
+    // line(n[0], n[1], c[0], c[1]);
     bezier(
       n[0],
       n[1],
@@ -45,7 +45,7 @@ draw = (_) => {
     for (i = -3; i < 4; i++) {
       dx = cos(p) * 10 * i;
       dy = sin(p) * 10 * i;
-      line(n[0] + dx, n[1] + dy, c[0] + dx, c[1] + dy);
+      // line(n[0] + dx, n[1] + dy, c[0] + dx, c[1] + dy);
     }
     p = c;
     c = n;

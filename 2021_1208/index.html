@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+    <script src="udon07.js"></script>
+    <link rel="stylesheet" href="app.css" />
+    <title>00Prepare</title>
+  </head>
+  <body>
+    <div class="floating-content">
+      <h1>Udon, ver.0.0.7</h1>
+      <p class="text-content">
+        function setup() { num = 500; createCanvas((w = windowWidth), (h =
+        windowHeight)); stroke(255, 255, 230); strokeWeight(20); pi = Math.PI; p
+        = []; resetPosition(); init = p; angle = pi / 4; delta = 0; i = 0;
+        offset = 30; } function draw() { background(2, 63, 51); noFill(); delta
+        += 0.01; angle += (pi / 100) * noise(delta); for (i = 0; i &gt; num;
+        i++) { next = (i + 1) % num; p[i].updateAngle(p[i].initAngle + 2 * pi *
+        sin(delta)); } // draw Udon for (i = 0; i &gt; num - 1; i++) { next = (i
+        + 1) % num; push(); strokeCap(SQUARE); strokeWeight(21); stroke(100,
+        100, 100); bezierFromAnchor(p[i], p[next]); pop();
+        bezierFromAnchor(p[i], p[next]); } }
+      </p>
+    </div>
+  </body>
+</html>
